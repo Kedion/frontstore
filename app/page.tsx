@@ -1,3 +1,5 @@
+import Button from "@/components/ui/Button";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
@@ -72,13 +74,13 @@ export default function Home() {
 
             {/* CTAs */}
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <button className="rounded-xl bg-slate-900 px-6 py-3 font-semibold text-white hover:bg-slate-800">
-                Shop products
-              </button>
+              <Button>
+                Shop Products
+              </Button>
 
-              <button className="rounded-xl border border-slate-300 bg-white px-6 py-3 font-semibold hover:bg-slate-50">
-                Start selling
-              </button>
+              <Button variant="outline">
+                Start Selling
+              </Button>
             </div>
           </div>
         </div>
@@ -96,7 +98,7 @@ export default function Home() {
           </h2>
 
           <p className="mt-3 max-w-2xl text-slate-600">
-            Whether you're buying, selling, earning or learning a trade,
+            Whether you&apos;re buying, selling, earning or learning a trade,
             FrontStore gives you a place to participate.
           </p>
         </div>
