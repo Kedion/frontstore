@@ -1,4 +1,5 @@
 import Button from "@/components/ui/Button";
+import Badge from "@/components/ui/Badge";
 
 export default function Home() {
   return (
@@ -155,7 +156,11 @@ export default function Home() {
 
             <div className="rounded-2xl bg-white p-6 text-slate-900 shadow-xl">
               <div className="mb-5">
-                <p className="font-semibold">Chicken Flavour Seasoning</p>
+                <Badge variant="success">Verified Seller</Badge>
+
+                <h3 className="mt-3 text-xl font-bold">
+                  Chicken Flavour Seasoning
+                </h3>
                 <p className="text-sm text-slate-500">
                   ABC Foods · Lagos
                 </p>
