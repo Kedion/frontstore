@@ -1,11 +1,9 @@
 import Image from "next/image";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
+import PricingTable from "./PricingTable";
 
-type PriceTier = {
-  quantity: string;
-  price: string;
-};
+import type { PriceTier } from "@/lib/products";
 
 type ProductCardProps = {
   name: string;
@@ -55,22 +53,7 @@ export default function ProductCard({
           From {priceFrom} / carton
         </p>
 
-        <div className="mt-4 space-y-2">
-          {priceTiers.map((tier) => (
-            <div
-              key={tier.quantity}
-              className="flex items-center justify-between rounded-lg bg-gray-50 px-3 py-2 text-sm"
-            >
-              <span className="text-gray-600">
-                {tier.quantity} cartons
-              </span>
-
-              <span className="font-semibold text-gray-900">
-                {tier.price}
-              </span>
-            </div>
-          ))}
-        </div>
+        <PricingTable priceTiers={priceTiers} />
 
         <div className="mt-4">
           <Badge variant="success">{stock}</Badge>
