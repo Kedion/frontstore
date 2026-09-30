@@ -317,6 +317,7 @@ export default function Home() {
   );
 }
 
+
 function FeatureCard({
   title,
   description,
@@ -326,10 +327,90 @@ function FeatureCard({
   description: string;
   action: string;
 }) {
+  const icons = {
+    Marketplace: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        className="h-6 w-6"
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M3 9h18M5 9l1-5h12l1 5M6 9v10h12V9M9 13h6"
+        />
+      </svg>
+    ),
+    "Oso Ahịa": (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        className="h-6 w-6"
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M4 10h16M5 10v9h14v-9M7 10V5h10v5M9 19v-5h6v5"
+        />
+      </svg>
+    ),
+    "Learn a Trade": (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        className="h-6 w-6"
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="m3 9 9-5 9 5-9 5-9-5Z"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M7 11.5V15c2.8 2 7.2 2 10 0v-3.5M21 9v5"
+        />
+      </svg>
+    ),
+    Sell: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        className="h-6 w-6"
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M4 10h16M5 10v9h14v-9M7 10V5h10v5M9 19v-5h6v5"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M8 5h8l1 5H7l1-5Z"
+        />
+      </svg>
+    ),
+  };
+
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:shadow-lg">
-      <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 font-bold text-orange-700">
-        F
+      <div
+        className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-orange-700"
+        aria-hidden="true"
+      >
+        {icons[title as keyof typeof icons]}
       </div>
 
       <h3 className="text-xl font-bold">{title}</h3>
@@ -338,7 +419,10 @@ function FeatureCard({
         {description}
       </p>
 
-      <button className="mt-5 text-sm font-semibold text-orange-600 hover:text-orange-700">
+      <button
+        type="button"
+        className="mt-5 rounded-md text-sm font-semibold text-orange-600 transition hover:text-orange-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
+      >
         {action} →
       </button>
     </div>

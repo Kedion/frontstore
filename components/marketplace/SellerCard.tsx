@@ -19,7 +19,7 @@ export default function SellerCard({
   wholesale = false,
 }: SellerCardProps) {
   return (
-    <article className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:shadow-md">
+    <article className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-shadow duration-200 hover:shadow-md">
       <div className="flex items-start justify-between gap-4">
         <div>
           <div className="flex flex-wrap items-center gap-2">
@@ -38,9 +38,13 @@ export default function SellerCard({
         </div>
 
         <div className="rounded-xl bg-gray-100 px-3 py-2 text-center">
-          <p className="text-sm font-bold text-gray-900">
-            ★ {rating}
+          <p
+            className="text-sm font-bold text-gray-900"
+            aria-label={`Seller rating: ${rating} out of 5`}
+          >
+            <span aria-hidden="true">★</span> {rating}
           </p>
+
           <p className="text-xs text-gray-500">
             Rating
           </p>
@@ -52,6 +56,7 @@ export default function SellerCard({
           <p className="text-xs text-gray-500">
             Products
           </p>
+
           <p className="mt-1 font-bold text-gray-900">
             {productCount}
           </p>
@@ -61,13 +66,17 @@ export default function SellerCard({
           <p className="text-xs text-gray-500">
             Wholesale
           </p>
+
           <p className="mt-1 font-bold text-gray-900">
             {wholesale ? "Available" : "Contact seller"}
           </p>
         </div>
       </div>
 
-      <Button variant="outline" className="mt-5 w-full">
+      <Button
+        variant="outline"
+        className="mt-5 w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
+      >
         View Store
       </Button>
     </article>

@@ -25,11 +25,11 @@ export default function ProductCard({
   priceTiers,
 }: ProductCardProps) {
   return (
-    <article className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md">
+    <article className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow duration-200 hover:shadow-md">
       <div className="relative h-48 overflow-hidden bg-gray-100">
         <Image
           src={image}
-          alt={name}
+          alt={`${name} product`}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           className="object-contain p-4"
@@ -59,7 +59,8 @@ export default function ProductCard({
           <Badge variant="success">{stock}</Badge>
         </div>
 
-        <Button className="mt-5 w-full">
+        <Button
+          className="mt-5 w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">
           View Product
         </Button>
       </div>
