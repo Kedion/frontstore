@@ -1,5 +1,6 @@
 import Button from "@/components/ui/Button";
 import ProductCard from "@/components/marketplace/ProductCard";
+import SellerCard from "@/components/marketplace/SellerCard";
 import { productImages } from "@/lib/product-images";
 
 export default function Home() {
@@ -168,6 +169,54 @@ export default function Home() {
                 { quantity: "20–99", price: "₦22,000" },
                 { quantity: "100+", price: "₦20,500" },
               ]}
+            />
+          </div>
+        </div>
+      </section>
+
+        {/* Seller Section */}
+      <section className="border-t border-gray-200 bg-gray-50 px-6 py-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-8">
+            <p className="text-sm font-semibold uppercase tracking-wide text-gray-500">
+              Trusted Sellers
+            </p>
+
+            <h2 className="mt-2 text-3xl font-bold text-gray-900">
+              Buy from businesses you can trust
+            </h2>
+
+            <p className="mt-3 max-w-2xl text-gray-600">
+              Discover verified Nigerian businesses, compare their products,
+              and connect directly with sellers.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <SellerCard
+              name="ABC Foods"
+              location="Lagos, Nigeria"
+              rating="4.8"
+              productCount={24}
+              verified
+              wholesale
+            />
+
+            <SellerCard
+              name="Prime Foods & Beverages"
+              location="Onitsha, Anambra"
+              rating="4.7"
+              productCount={18}
+              verified
+              wholesale
+            />
+
+            <SellerCard
+              name="Eastern Distribution Hub"
+              location="Port Harcourt, Rivers"
+              rating="4.6"
+              productCount={31}
+              wholesale
             />
           </div>
         </div>
