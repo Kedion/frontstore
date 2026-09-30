@@ -1,10 +1,15 @@
 import Button from "@/components/ui/Button";
 import ProductCard from "@/components/marketplace/ProductCard";
+import ProductGrid from "@/components/marketplace/ProductGrid";
 import SellerCard from "@/components/marketplace/SellerCard";
 import CategoryCard from "@/components/marketplace/CategoryCard";
-import { productImages } from "@/lib/product-images";
+import { products } from "@/lib/products";
 
 export default function Home() {
+    const featuredWholesaleProduct = products.find(
+    (product) => product.id === "chicken-seasoning-001",
+  );
+
   return (
     <main className="min-h-screen bg-white text-slate-900">
       {/* Navigation */}
@@ -184,6 +189,32 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Products */}
+      <section className="mx-auto max-w-7xl px-6 py-16">
+        <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wider text-orange-600">
+              Marketplace
+            </p>
+
+            <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
+              Products for your business
+            </h2>
+
+            <p className="mt-3 max-w-2xl text-slate-600">
+              Discover wholesale products from Nigerian manufacturers,
+              distributors and trusted sellers.
+            </p>
+          </div>
+
+          <button className="w-fit rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-orange-500 hover:text-orange-600">
+            View all products
+          </button>
+        </div>
+
+        <ProductGrid />
+      </section>
+
       {/* Wholesale section */}
       <section className="bg-slate-900 text-white">
         <div className="mx-auto max-w-7xl px-6 py-20">
@@ -207,20 +238,17 @@ export default function Home() {
               </button>
             </div>
 
-            <ProductCard
-              name="Chicken Flavour Seasoning"
-              seller="ABC Foods · Lagos"
-              image={productImages.seasoning.chicken}
-              priceFrom="₦20,500"
-              verified
-              stock="In Stock"
-              priceTiers={[
-                { quantity: "1–4", price: "₦25,000" },
-                { quantity: "5–19", price: "₦23,500" },
-                { quantity: "20–99", price: "₦22,000" },
-                { quantity: "100+", price: "₦20,500" },
-              ]}
-            />
+            {featuredWholesaleProduct && (
+              <ProductCard
+                name={featuredWholesaleProduct.name}
+                seller={`${featuredWholesaleProduct.seller} · ${featuredWholesaleProduct.location}`}
+                image={featuredWholesaleProduct.image}
+                priceFrom={featuredWholesaleProduct.priceFrom}
+                verified={featuredWholesaleProduct.verified}
+                stock={featuredWholesaleProduct.stock}
+                priceTiers={featuredWholesaleProduct.priceTiers}
+              />
+            )}
           </div>
         </div>
       </section>
