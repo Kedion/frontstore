@@ -1,6 +1,7 @@
 import Button from "@/components/ui/Button";
 import ProductCard from "@/components/marketplace/ProductCard";
 import SellerCard from "@/components/marketplace/SellerCard";
+import CategoryCard from "@/components/marketplace/CategoryCard";
 import { productImages } from "@/lib/product-images";
 
 export default function Home() {
@@ -129,6 +130,56 @@ export default function Home() {
             title="Sell"
             description="Create your storefront, manage inventory and reach new customers."
             action="Open your store"
+          />
+        </div>
+      </section>
+
+      {/* Categories */}
+      <section className="mx-auto max-w-7xl px-6 py-16">
+        <div className="mb-10">
+          <p className="text-sm font-semibold uppercase tracking-wider text-orange-600">
+            Browse marketplace
+          </p>
+
+          <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
+            Shop by category
+          </h2>
+
+          <p className="mt-3 max-w-2xl text-slate-600">
+            Explore products from Nigerian manufacturers, distributors and
+            businesses across everyday categories.
+          </p>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <CategoryCard
+            name="Seasonings"
+            description="Chicken, beef, onion, curry and other flavour products."
+            productCount={42}
+          />
+
+          <CategoryCard
+            name="Tomato Products"
+            description="Tomato paste, concentrate, sauces and related products."
+            productCount={28}
+          />
+
+          <CategoryCard
+            name="Beverages"
+            description="Soft drinks, juices, bottled water and other beverages."
+            productCount={36}
+          />
+
+          <CategoryCard
+            name="Rice"
+            description="Local, parboiled and packaged rice from trusted sellers."
+            productCount={31}
+          />
+
+          <CategoryCard
+            name="Garri & Staples"
+            description="Garri, garri mixes and everyday Nigerian food staples."
+            productCount={24}
           />
         </div>
       </section>
