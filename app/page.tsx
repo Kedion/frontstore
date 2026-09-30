@@ -1,5 +1,6 @@
 import Button from "@/components/ui/Button";
-import Badge from "@/components/ui/Badge";
+import ProductCard from "@/components/marketplace/ProductCard";
+import { productImages } from "@/lib/product-images";
 
 export default function Home() {
   return (
@@ -154,29 +155,20 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="rounded-2xl bg-white p-6 text-slate-900 shadow-xl">
-              <div className="mb-5">
-                <Badge variant="success">Verified Seller</Badge>
-
-                <h3 className="mt-3 text-xl font-bold">
-                  Chicken Flavour Seasoning
-                </h3>
-                <p className="text-sm text-slate-500">
-                  ABC Foods · Lagos
-                </p>
-              </div>
-
-              <div className="space-y-3">
-                <PriceRow quantity="1–4 cartons" price="₦25,000" />
-                <PriceRow quantity="5–19 cartons" price="₦23,500" />
-                <PriceRow quantity="20–99 cartons" price="₦22,000" />
-                <PriceRow quantity="100+ cartons" price="₦20,500" />
-              </div>
-
-              <button className="mt-6 w-full rounded-xl bg-slate-900 py-3 font-semibold text-white">
-                View product
-              </button>
-            </div>
+            <ProductCard
+              name="Chicken Flavour Seasoning"
+              seller="ABC Foods · Lagos"
+              image={productImages.seasoning.chicken}
+              priceFrom="₦20,500"
+              verified
+              stock="In Stock"
+              priceTiers={[
+                { quantity: "1–4", price: "₦25,000" },
+                { quantity: "5–19", price: "₦23,500" },
+                { quantity: "20–99", price: "₦22,000" },
+                { quantity: "100+", price: "₦20,500" },
+              ]}
+            />
           </div>
         </div>
       </section>
@@ -221,21 +213,6 @@ function FeatureCard({
       <button className="mt-5 text-sm font-semibold text-orange-600 hover:text-orange-700">
         {action} →
       </button>
-    </div>
-  );
-}
-
-function PriceRow({
-  quantity,
-  price,
-}: {
-  quantity: string;
-  price: string;
-}) {
-  return (
-    <div className="flex items-center justify-between border-b border-slate-100 py-3 last:border-0">
-      <span className="text-sm text-slate-600">{quantity}</span>
-      <span className="font-semibold">{price}</span>
     </div>
   );
 }
